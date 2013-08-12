@@ -1,0 +1,17 @@
+.expArrow{
+	padding-left: 20px;
+	background: url(images/expand-arrow.gif) no-repeat;
+}
+.collArrow{
+	padding-left: 20px;
+	background: url(images/collapse-arrow.gif) no-repeat;
+}
+.expIco{
+	padding-left: 20px;
+	background: url(images/plus.gif) no-repeat 0px 4px;
+}
+.collIco{
+	padding-left: 20px;
+	background: url(images/minus.gif) no-repeat 0px 4px;
+}
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+ 
+  <!-- Use @Component annotations for bean definitions -->
+    <context:component-scan base-package="com.bth.anomalydetection"/>
+  
+    <mvc:resources mapping="/3pp/**" location="/3pp/" />
+    <mvc:resources mapping="/img/**" location="/img/" />
+    <mvc:resources mapping="/public-docs/**" location="/public-docs/" />
+  
+    <bean id="viewResolver"
+      class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+ 
+  <!-- Use @Controller annotations for MVC controller definitions -->
+    <mvc:annotation-driven  />
+    <mvc:view-controller path="/" view-name="home" />
+ 
+    <tx:annotation-driven transaction-manager="transactionManager"  />
+   
+
+    <!-- support for annotation-based ORM -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+    <!--
+    persistence configuration
+    NOTE: connection parameters are specified inside persistence.xml under resources folder
+    -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="anomalydetection" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+        </property>
+    </bean>    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+<!--task:scheduled-tasks scheduler="myScheduler">
+        <task:scheduled ref="systemService" method="removeTrack" cron="0 0 0 * * ?" />
+        <task:scheduled ref="anomalyDetector" method="anomalyDetectorModule"  fixed-rate="60000" />
+    </task:scheduled-tasks>
+<task:scheduler id="myScheduler" pool-size="10"/-->
+    
+</beans>
+<!--cron="0 * * * * ?"-->
