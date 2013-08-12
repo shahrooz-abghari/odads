@@ -23,8 +23,8 @@ More information about this project can be found at [Open Data for Anomaly Detec
 #####Building the project
 Building the project
 The project is a multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
-The user name and password of the database is hard-coded in the file `persistence.xml`. 
 The dump of the database is also enclosed to this repository.  
+
 The default user name and password for loging in to the system.
  
     User name: guest
