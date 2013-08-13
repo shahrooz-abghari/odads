@@ -21,7 +21,6 @@ The Display Client module is the graphical user interface of ODADS which is a we
 More information about this project can be found at [Open Data for Anomaly Detection in Maritime Surveillance](http://www.bth.se/fou/cuppsats.nsf/1d345136c12b9a52c1256608004f0519/2bd92c1db26aa75fc1257ac4006d6cc1!OpenDocument).
 
 #####Building the project
-Building the project
 The project is a multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
 The dump of the database is also enclosed to this repository.  
 
