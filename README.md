@@ -18,7 +18,7 @@ The Anomaly Detector module analyses the available data (open and closed data) a
 #####Display Client
 The Display Client module is the graphical user interface of ODADS which is a web-based application.
 
-More information about this project can be found at [Open Data for Anomaly Detection in Maritime Surveillance](http://www.bth.se/fou/cuppsats.nsf/1d345136c12b9a52c1256608004f0519/2bd92c1db26aa75fc1257ac4006d6cc1!OpenDocument).
+More information about this project can be found at [Open Data for Anomaly Detection in Maritime Surveillance](http://bth.diva-portal.org/smash/record.jsf?dswid=282&pid=diva2%3A832155&c=1&searchType=SIMPLE&language=en&query=Open+Data+for+Anomaly+Detection+in+Maritime+Surveillance.&af=%5B%5D&aq=%5B%5B%5D%5D&aq2=%5B%5B%5D%5D&aqe=%5B%5D&noOfRows=50&sortOrder=author_sort_asc&onlyFullText=false&sf=all).
 
 #####Building the project
 The project is a multi-module Maven project. To build the whole project, just run `mvn install` from the root directory.
